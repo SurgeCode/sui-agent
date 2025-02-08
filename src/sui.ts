@@ -88,3 +88,20 @@ export const sendSui = async (
     recipientAddress
   };
 };
+
+export const maxDuration = 30;
+
+export function validateEnv() {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    throw new Error('ANTHROPIC_API_KEY environment variable is required');
+  }
+
+  if (!process.env.SUI_PRIVATE_KEY) {
+    throw new Error('SUI_PRIVATE_KEY environment variable is required');
+  }
+}
+
+export async function setupAccount() {
+  const keypair = await instantiateAccount(process.env.SUI_PRIVATE_KEY!);
+  return keypair.getPublicKey().toSuiAddress();
+}
