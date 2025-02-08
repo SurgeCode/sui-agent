@@ -1,0 +1,38 @@
+{
+  "name": "typescript-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.12.12",
+    "@types/node-telegram-bot-api": "^0.64.6",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^0.0.51",
+    "@google-cloud/firestore": "^7.9.0",
+    "@hono/node-server": "^1.13.1",
+    "@mysten/sui": "^1.21.2",
+    "@mysten/sui.js": "^0.54.1",
+    "@near-relay/client": "^0.1.0",
+    "@near-relay/server": "^0.1.0",
+    "aftermath-ts-sdk": "^1.2.51",
+    "ai": "^3.4.8",
+    "bn": "^1.0.5",
+    "express": "^4.21.0",
+    "hono": "^4.6.3",
+    "js-sha256": "^0.11.0",
+    "near-api-js": "^2.1.4",
+    "node-server,": "link:@hono/node-server,",
+    "node-telegram-bot-api": "^0.66.0",
+    "open": "^10.1.0",
+    "zod": "^3.24.1"
+  }
+}
