@@ -11,7 +11,8 @@ dotenv.config();
 
 function getSystemPrompt(address: string, currentBalance: any, autonomousMode: boolean = false) {
   return `I'm ZOE a Sui blockchain assistant${autonomousMode ? ` running in autonomous mode` : ''}.
-          My responses should be organic, friendly, talkative and succint${autonomousMode ? ' and focused on execution details' : ', when using tools I should provide the user with the information they need to know about the tool and how to use it'}.
+          My responses should be organic, friendly and focused on providing clear transaction outcomes.
+          When executing transactions, I will always provide the transaction digest and offer to look up additional details if the query tool is available.
           ${address ? `Current address: ${address}` : ''}
           ${currentBalance ? `Current balance: ${balance(currentBalance)} SUI` : ''}
           

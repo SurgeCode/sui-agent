@@ -43,7 +43,7 @@ export function getTools(selectedTools?: string[]) {
             .enum([
               "Sui",
               "NAVX",
-              "vSui",
+              "vSui", 
               "USDT",
               "USDC",
               "WETH",
@@ -54,7 +54,7 @@ export function getTools(selectedTools?: string[]) {
             ])
             .optional()
             .describe("Coin type to interact with"),
-          amount: z.number().optional().describe("Amount in base units"),
+          amount: z.string().optional().describe("Amount in base units"),
         }),
         execute: async (args) => {
           const keypair = await instantiateAccount(process.env.SUI_PRIVATE_KEY);
@@ -63,7 +63,6 @@ export function getTools(selectedTools?: string[]) {
           });
           const account = client.accounts[0];
 
-          // Import the coin type from navi-sdk based on args.coinType
           const {
             Sui,
             NAVX,
@@ -76,6 +75,7 @@ export function getTools(selectedTools?: string[]) {
             AUSD,
             wUSDC,
           } = await import("navi-sdk");
+
           const coinMap: { [key: string]: any } = {
             Sui,
             NAVX,
@@ -89,39 +89,45 @@ export function getTools(selectedTools?: string[]) {
             wUSDC,
           };
 
+          let result;
           switch (args.action) {
             case "supply":
               if (!args.coinType || !args.amount) {
                 throw new Error("Coin type and amount required for supply");
               }
-              return await account.depositToNavi(
+              result = await account.depositToNavi(
                 coinMap[args.coinType],
-                args.amount
+                Number(args.amount)
               );
+              return result;
 
             case "withdraw":
               if (!args.coinType || !args.amount) {
                 throw new Error("Coin type and amount required for withdraw");
               }
-              return await account.withdraw(
+              result = await account.withdraw(
                 coinMap[args.coinType],
-                args.amount
+                Number(args.amount)
               );
+              return result;
 
             case "borrow":
               if (!args.coinType || !args.amount) {
                 throw new Error("Coin type and amount required for borrow");
               }
-              return await account.borrow(coinMap[args.coinType], args.amount);
+              result = await account.borrow(coinMap[args.coinType], Number(args.amount));
+              return result;
 
             case "repay":
               if (!args.coinType || !args.amount) {
                 throw new Error("Coin type and amount required for repay");
               }
-              return await account.repay(coinMap[args.coinType], args.amount);
+              result = await account.repay(coinMap[args.coinType], Number(args.amount));
+              return result;
 
             case "claim":
-              return await account.claimAllRewards();
+              result = await account.claimAllRewards();
+              return result;
 
             default:
               throw new Error("Invalid action specified");
@@ -152,7 +158,7 @@ export function getTools(selectedTools?: string[]) {
 
     liquidStaking: {
       name: "Liquid Staking",
-      description: "Mint or redeem sSUI tokens",
+      description: "Mint or redeem sSUI tokens", 
       tool: tool({
         description: "Mint or redeem sSUI tokens using Spring protocol",
         parameters: z.object({
@@ -177,10 +183,12 @@ export function getTools(selectedTools?: string[]) {
             suiClient,
             LIQUID_STAKING_INFO
           );
+
           const tx = new Transaction();
 
           if (args.action === "mint") {
-            const [sui] = tx.splitCoins(tx.gas, [BigInt(args.amount)]);
+            const mistAmount = Math.floor(args.amount);
+            const [sui] = tx.splitCoins(tx.gas, [mistAmount]);
             const sSui = lstClient.mint(tx, sui);
             tx.transferObjects([sSui], keypair.toSuiAddress());
           } else {
@@ -197,9 +205,8 @@ export function getTools(selectedTools?: string[]) {
               );
             }
 
-            const [lst] = tx.splitCoins(lstCoins.data[0].coinObjectId, [
-              BigInt(args.amount),
-            ]);
+            const mistAmount = Math.floor(args.amount);
+            const [lst] = tx.splitCoins(lstCoins.data[0].coinObjectId, [mistAmount]);
             const sui = lstClient.redeem(tx, lst);
             tx.transferObjects([sui], keypair.toSuiAddress());
           }
