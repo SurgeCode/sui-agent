@@ -1,44 +1,51 @@
 {
-  "name": "typescript-starter",
+  "name": "sui-tools",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A collection of tools for interacting with the Sui blockchain",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "zoe": "./dist/zoe.js"
+  },
   "scripts": {
-    "zoe": "npx tsx ./src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "zoe": "npx tsx ./src/zoe.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/express": "^5.0.0",
-    "@types/node": "^20.12.12",
-    "@types/node-telegram-bot-api": "^0.64.6",
-    "typescript": "^5.4.5"
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^0.0.51",
-    "@google-cloud/firestore": "^7.9.0",
-    "@hono/node-server": "^1.13.1",
+    "@ai-sdk/anthropic": "1.0.7",
+    "@ai-sdk/openai": "1.0.7", 
+    "@ai-sdk/provider": "1.0.7",
+    "ai": "3.4.8",
     "@mysten/sui": "^1.21.2",
     "@mysten/sui.js": "^0.54.1",
-    "@near-relay/client": "^0.1.0",
-    "@near-relay/server": "^0.1.0",
     "@suilend/springsui-sdk": "^1.0.19",
     "aftermath-ts-sdk": "^1.2.51",
-    "ai": "^3.4.8",
-    "atoma-sdk": "^0.1.0",
     "bn": "^1.0.5",
     "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
     "enquirer": "^2.4.1",
     "express": "^4.21.0",
-    "hono": "^4.6.3",
     "js-sha256": "^0.11.0",
     "navi-sdk": "^1.4.27",
-    "near-api-js": "^2.1.4",
-    "node-server,": "link:@hono/node-server,",
-    "node-telegram-bot-api": "^0.66.0",
-    "open": "^10.1.0",
     "zod": "^3.24.1"
+  },
+  "peerDependencies": {
+    "@mysten/sui": "^1.21.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@ai-sdk/provider": "1.0.7"
+    }
   }
 }
