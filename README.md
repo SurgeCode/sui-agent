@@ -1,7 +1,12 @@
 # 🤖 Zoe & Sui Agent Tools: 
-## Agent Tech To Power the Sui Ecosystem
+
 
 ![Zoe Demo](https://github.com/SurgeCode/sui-agent/blob/main/demo.gif)
+
+
+
+## __The Most Comprehensive Sui Agent + Toolkit combo__ 
+While others offer basic functionality, this delivers the complete package with __copious amounts of tools__: 3 DEX trading tools, lending, liquid staking, real-time monitoring and much more - all in one powerful, easy-to-use toolkit that can be easily used in any agent or run with ZOE in assistant or autonomous mode.
 
 ## Zoe 
 Zoe is a minimalistic AI agent framework that's simple and easy to run, optimized for onboarding people into agent tech, it offers both assistant and autonomous modes, can be consumed via CLI, telegram bot, or Web CHAT. It uses both vercel AI SDK and atoma network to execute LLM calls. It can be extended with new tools and ecosystem integrations having already direct access to most of the sui ecosystem via the sui-agent-tools package.
@@ -24,6 +29,8 @@ Zoe is a minimalistic AI agent framework that's simple and easy to run, optimize
 
 ## Sui Agent Tools Overview
 Sui Agent Tools provides a comprehensive suite of blockchain tools with unmatched ecosystem coverage - from DEX integrations to lending protocols. The entire Sui agent ecosystem can leverage these tools since they are built to be fully compatible with atoma-agents, sui-agent-kit, eliza, Open AI, and vercel AI SDK. This means any agent in the ecosystem can tap into it. While these powerful tools come pre-integrated into Zoe's natural language interface, they can be easily plugged into any agent.
+
+
 
 
 | Tool | Description | Key Functions |
