@@ -30,6 +30,7 @@ Sui Agent Tools provides a comprehensive suite of blockchain tools with unmatche
 | **NAVI Protocol** | Lending/borrowing operations | Supply, withdraw, borrow, repay, claim rewards |
 | **Liquid Staking (Spring)** | Spring protocol integration | Mint/redeem sSUI, manage staking positions |
 | **Cetus DEX** | Full DEX functionality | Pool, liquidity, swap and position management |
+| **Bluefin DEX** | Spot trading interface | Execute trades with slippage protection, pool management |
 | **Balance Tools** | Account management | Get balances, transfer SUI tokens |
 | **Price Tools** | Market data access | Current prices, changes, market data |
 | **Query Tool** | Blockchain data access | Chain info, address and transaction data |
