@@ -7,7 +7,9 @@ These tools are designed to be used with AI tools seemlessly and are interchange
 
 
 ## Installation
-
+````
+pnpm i sui-agent-tools
+````
 
 | Tool | Description | Key Functions |
 |------|-------------|---------------|

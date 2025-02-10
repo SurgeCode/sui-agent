@@ -64,6 +64,10 @@ pnpm i && pnpm dev
 
 ### sui-agent-tools
 
+````
+pnpm i sui-agent-tools
+````
+
 Check tool list above
 ```typescript
 import { generateText } from 'ai';
