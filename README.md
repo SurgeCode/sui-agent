@@ -1,5 +1,6 @@
-# 🤖 Zoe & Sui Agent Tools: Agent Tech To Power the Sui Ecosystem
-
+# 🤖 Zoe & Sui Agent Tools: 
+## Agent Tech To Power the Sui Ecosystem
+![Zoe Demo](https://i.imgur.com/xlodADb.gif)
 
 ## Zoe 
 Zoe is a minimalistic AI agent framework that's simple and easy to run, optimized for onboarding people into agent tech, it offers both assistant and autonomous modes, can be consumed via CLI, telegram bot, or Web CHAT. It uses both vercel AI SDK and atoma network to execute LLM calls. It can be extended with new tools and ecosystem integrations having already direct access to most of the sui ecosystem via the sui-agent-tools package.

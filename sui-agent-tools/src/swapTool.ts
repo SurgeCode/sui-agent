@@ -6,7 +6,7 @@ import { supportedCoins } from "./constants";
 
 export const swapTool = tool({
   description:
-    "Execute swaps and get quotes for trades using Aftermath DEX. First get a quote using action='getQuote' to preview the swap, then execute with action='executeSwap'. For coinInType and coinOutType, use one of these supported addresses: " + supportedCoins.join(", ") + ". After getting a quote, confirm you want to proceed before executing the swap. The response will show the input and output amounts.",
+    "Execute swaps and get quotes for trades using Aftermath DEX. First get a quote using action='getQuote' to preview the swap, then execute with action='executeSwap'. For coinInType and coinOutType, use one of these supported addresses: " + supportedCoins.join(", ") + ". When running autonomously, the swap will execute automatically after getting a quote. The response will show the input and output amounts.",
   parameters: z.object({
     action: z
       .enum(["getQuote", "executeSwap"])

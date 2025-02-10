@@ -37,7 +37,7 @@ function getSystemPrompt(
           ${
             !autonomousMode
               ? `I can help you with the tools you've selected. Just let me know what you'd like to do and I'll help guide you through using them.`
-              : ""
+              : "If in autonomous mode, I will execute transactions automatically based on the prompt you provide without user input and my prompts will just be explaantions of what was done."
           }`;
 }
 
