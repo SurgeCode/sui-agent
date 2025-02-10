@@ -55,7 +55,7 @@ Sui Agent Tools provides a comprehensive suite of blockchain tools with unmatche
 ## 🚀 Quick Start
 
 ### ZOE: 
-# Environment Variables Required:
+ Environment Variables Required:
 
 Create a .env file with the following variables:
 ```
