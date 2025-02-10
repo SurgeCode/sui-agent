@@ -6,7 +6,7 @@
 
 
 ## __The Most Comprehensive Sui Agent + Toolkit combo__ 
-While others offer basic functionality, this delivers the complete package with __copious amounts of tools__: 3 DEX trading tools, lending, liquid staking, real-time monitoring and much more - all in one powerful, easy-to-use toolkit that can be easily used in any agent or run with ZOE in assistant or autonomous mode.
+While others offer basic functionality, this delivers the complete package with __copious amounts of tools__: 3 DEX trading tools, lending, liquid staking, real-time monitoring and much more - all in one powerful, easy-to-use toolkit that can be easily consumed in any agent or run with ZOE in assistant or autonomous mode.
 
 ## Zoe 
 Zoe is a minimalistic AI agent framework that's simple and easy to run, optimized for onboarding people into agent tech, it offers both assistant and autonomous modes, can be consumed via CLI, telegram bot, or Web CHAT. It uses both vercel AI SDK and atoma network to execute LLM calls. It can be extended with new tools and ecosystem integrations having already direct access to most of the sui ecosystem via the sui-agent-tools package.
