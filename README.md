@@ -93,7 +93,7 @@ async function runSuiAgent() {
 
 ## 🤝 Ecosystem Integration
 
-### Atoma Network
+### Atoma Network ([Integration](https://github.com/SurgeCode/sui-agent/blob/91c3345f4872abc397a3288c5b390a8479d9cd41/zoe/src/zoe.ts#L168))
 - Executions for zoe for LLAMA and DeepSeek models
 - All tools can be ingested into the atoma-agents framework to provide ecosystem coverage and also can ingest atoma-agent tools (once available exported)
 
@@ -101,15 +101,15 @@ async function runSuiAgent() {
 - Direct integration with transaction building using Sui typescript SDK
 - Connection to SUI rpc and graphql interafaces for data
 
-### NAVI Protocol
+### NAVI Protocol ([Integration](https://github.com/SurgeCode/sui-agent/blob/main/sui-agent-tools/src/navi.ts))
 - Lending, borrowing, supplying, withdrawing, claiming rewards and more as a tool that can be used by any agent in and outside of the sui ecosystem
 - Use cases with Zoe assistant mode: "Supply 100 SUI to NAVI and borrow USDC", or autonomous mode: "Auto claim every minute and supply to compound"
 
-### SuiLend/SpringSui
+### SuiLend/SpringSui ([Integration](https://github.com/SurgeCode/sui-agent/blob/main/sui-agent-tools/src/liquidStaking.ts))
 - Minting and redeeming sSUI as a tool that can be used by any agent in and outside of the sui ecosystem
 - Use cases with Zoe assistant mode: "Mint 100 sSUI", or autonomous mode: "Auto redeem sSUI when price is below target"
 
-### Cetus DEX & Aftermath Dex integration
+### Cetus, Aftermath and Bluefin Dex integration ([Integration](https://github.com/SurgeCode/sui-agent/tree/main/sui-agent-tools/src))
 - Full DEX functionality as a tool that can be used by any agent in and outside of the sui ecosystem
 - Use cases with Zoe assistant mode: "Swap 100 SUI for USDC", or autonomous mode: "Auto swap to snipe at price target, dca into this every minute"
 
