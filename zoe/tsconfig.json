@@ -10,6 +10,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node"
   },
-  "include": ["src"],
+  "include": ["src", "../sui-agent-tools/src"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
-import { instantiateAccount } from "../sui";
+import { instantiateAccount } from "./sui-utils";
 import { NAVISDKClient } from "navi-sdk";
 
 export const naviTool = tool({

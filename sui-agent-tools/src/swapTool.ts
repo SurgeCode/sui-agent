@@ -1,11 +1,12 @@
 import { tool } from "ai";
 import { z } from "zod";
-import { instantiateAccount, suiClient } from "../sui";
+import { instantiateAccount, suiClient } from "./sui-utils";
 import { Aftermath, Coin } from "aftermath-ts-sdk";
+import { supportedCoins } from "./constants";
 
 export const swapTool = tool({
   description:
-    "Execute swaps and get quotes for trades using Aftermath DEX, you need to get the quote first and ask the user to confirm you want to swap, then when its done you need to show the user how much they swapped how much they got",
+    "Execute swaps and get quotes for trades using Aftermath DEX. First get a quote using action='getQuote' to preview the swap, then execute with action='executeSwap'. For coinInType and coinOutType, use one of these supported addresses: " + supportedCoins.join(", ") + ". After getting a quote, confirm you want to proceed before executing the swap. The response will show the input and output amounts.",
   parameters: z.object({
     action: z
       .enum(["getQuote", "executeSwap"])
@@ -29,21 +30,14 @@ export const swapTool = tool({
 
     const keypair = await instantiateAccount(process.env.SUI_PRIVATE_KEY);
     const address = keypair.getPublicKey().toSuiAddress();
-    const coin = afSdk.Coin();
-    const decimals = await coin.getCoinsToDecimals({
-      coins: [args.coinInType],
-    });
 
-    const normalizedAmount = Coin.normalizeBalance(
-      Number(args.amount),
-      decimals[args.coinInType]
-    );
-
+    const amountBigInt = BigInt(args.amount);
+    console.log(args.coinInType, args.coinOutType, amountBigInt)
     const route = await router.getCompleteTradeRouteGivenAmountIn({
       coinInType: args.coinInType,
       coinOutType: args.coinOutType,
-      coinInAmount: BigInt(normalizedAmount.toString()),
-      referrer: address,
+      coinInAmount: amountBigInt,
+      referrer: address
     });
 
     if (args.action === "getQuote") {
@@ -51,29 +45,27 @@ export const swapTool = tool({
     }
 
     if (!args.slippage) {
-      throw new Error(
-        "Slippage parameter is required for swap execution"
-      );
+      throw new Error("Slippage parameter is required for swap execution");
     }
 
     const transaction = await router.getTransactionForCompleteTradeRoute({
       walletAddress: address,
       completeRoute: route,
-      slippage: args.slippage,
+      slippage: args.slippage
     });
 
     const result = await suiClient.signAndExecuteTransaction({
       signer: keypair,
       transaction,
       options: {
-        showBalanceChanges: true,
-      },
+        showBalanceChanges: true
+      }
     });
 
     return {
       success: true,
       transactionId: result.digest,
-      route,
+      route
     };
   },
-}); 
+});

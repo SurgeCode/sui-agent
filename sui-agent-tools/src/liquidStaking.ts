@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
-import { instantiateAccount, suiClient } from "../sui";
+import { instantiateAccount, suiClient } from "./sui-utils";
 import { LstClient } from "@suilend/springsui-sdk";
 import { Transaction } from "@mysten/sui/transactions";
 

@@ -1,7 +1,7 @@
 import { tool } from "ai";
 import { z } from "zod";
 import { Aftermath } from "aftermath-ts-sdk";
-import { supportedCoins } from "../constants";
+import { supportedCoins } from "./constants";
 
 export const getPricesTool = tool({
   description:

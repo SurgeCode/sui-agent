@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
-import { getAllBalances } from "../sui";
+import { getAllBalances } from "./sui-utils";
 import { Aftermath } from "aftermath-ts-sdk";
 
 export const getAllBalancesTool = tool({

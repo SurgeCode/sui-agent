@@ -1,0 +1,44 @@
+{
+  "name": "sui-agent-tools-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "zoe": "npx tsx ./src/zoe.ts",
+    "build": "yarn workspaces run build",
+    "test": "yarn workspaces run test",
+    "lint": "yarn workspaces run lint"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "1.0.7",
+    "@ai-sdk/openai": "1.0.7",
+    "@ai-sdk/openai-compatible": "0.1.8",
+    "@ai-sdk/provider": "1.0.7",
+    "@cetusprotocol/cetus-sui-clmm-sdk": "^5.2.0",
+    "@mysten/sui": "^1.21.2",
+    "@mysten/sui.js": "^0.54.1",
+    "@suilend/springsui-sdk": "^1.0.19",
+    "aftermath-ts-sdk": "^1.2.51",
+    "ai": "3.4.8",
+    "bn": "^1.0.5",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "enquirer": "^2.4.1",
+    "express": "^4.21.0",
+    "js-sha256": "^0.11.0",
+    "navi-sdk": "^1.4.27",
+    "openai": "^4.83.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@ai-sdk/provider": "1.0.7"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
-import { instantiateAccount, sendSui } from "../sui";
+import { instantiateAccount, sendSui } from "./sui-utils";
 
 export const sendSuiTool = tool({
   description:

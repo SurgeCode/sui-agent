@@ -7,8 +7,10 @@ import { naviTool } from "./navi";
 import { queryBlockchainTool } from "./queryBlockchain";
 import { sendSuiTool } from "./sendSui";
 import { swapTool } from "./swapTool";
+import { cetusTool } from "./cetus";
+import { bluefinTool } from "./bluefinTool";
 
-export const tools = {
+const tools = {
   registry: {
     navi: naviTool,
     sendSui: sendSuiTool,
@@ -18,6 +20,8 @@ export const tools = {
     swap: swapTool,
     getAllBalances: getAllBalancesTool,
     getPrices: getPricesTool,
+    cetus: cetusTool,
+    bluefin: bluefinTool,
   } as Record<string, CoreTool>,
   
   navi: naviTool,
@@ -28,15 +32,17 @@ export const tools = {
   swap: swapTool,
   getAllBalances: getAllBalancesTool,
   getPrices: getPricesTool,
+  cetus: cetusTool,
+  bluefin: bluefinTool,
 };
 
-export type ToolsRegistry = typeof tools.registry;
+type ToolsRegistry = typeof tools.registry;
 
-export function getToolKeys(): string[] {
+function getToolKeys(): string[] {
   return Object.keys(tools.registry);
 }
 
-export function getTools(selectedTools?: string[]): Record<string, CoreTool> {
+function getTools(selectedTools?: string[]): Record<string, CoreTool> {
   if (selectedTools) {
     return Object.fromEntries(
       selectedTools
@@ -48,13 +54,17 @@ export function getTools(selectedTools?: string[]): Record<string, CoreTool> {
   return tools.registry;
 }
 
-export type ToolMetadata = {
+type ToolMetadata = {
   name: string;
   description: string;
 };
 
-// Re-export individual tools for direct imports
 export {
+  tools,
+  ToolsRegistry,
+  getToolKeys,
+  getTools,
+  ToolMetadata,
   getAllBalancesTool,
   getPricesTool,
   liquidStakingTool,
@@ -63,4 +73,6 @@ export {
   queryBlockchainTool,
   sendSuiTool,
   swapTool,
+  cetusTool,
+  bluefinTool,
 };

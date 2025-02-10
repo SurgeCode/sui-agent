@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
-import { supportedCoins } from "../constants";
+import { supportedCoins } from "./constants";
 
 export const listCoinsTool = tool({
   description:
