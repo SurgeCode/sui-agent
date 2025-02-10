@@ -45,6 +45,45 @@ Sui Agent Tools provides a comprehensive suite of blockchain tools with unmatche
 
 ## 🚀 Quick Start
 
+### ZOE: 
+# Environment Variables Required:
+
+Create a .env file with the following variables:
+```
+ANTHROPIC_API_KEY=
+SUI_PRIVATE_KEY=
+ATOMA_API_KEY=
+OPENAI_API_KEY=
+```
+
+Run Zoe
+```
+pnpm i && pnpm dev
+```
+
+### sui-agent-tools
+
+Check tool list above
+```typescript
+import { generateText } from 'ai';
+import { swapTool } from './swapTool';
+import { listCoinsTool } from './listCoinsTool'; 
+
+async function runSuiAgent() {
+  try {
+    const result = await generateText({
+      model: openai('gpt-4'),
+      system: SYSTEM_PROMPT,
+      tools: {
+        swap: swapTool,
+        listCoins: listCoinsTool
+      },
+      maxSteps: 3
+    });
+
+  }}
+```
+
 
 ## 🤝 Ecosystem Integration
 
